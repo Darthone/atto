@@ -1,0 +1,22 @@
+---
+server:                                                
+    listen: '*'
+    port: 9000
+    auth: 
+      - '127.0.0.1'
+      - '129.25.9.123'
+    sleep: 500
+                                                       
+pid_file: 'atto_server.pid'
+                                                       
+certs:                                                 
+    public: '../certs/public_keys'                     
+    private: '../certs/private_keys'                   
+    certs: '../certs/certificates'                      
+                                                       
+logging:                                               
+    log_path: '../logs/'                               
+    log_name: 'server.log'                             
+    log_foramt: '%(asctime)s %(levelname)s %(message)s'
+    log_level: 2 # lower is more verbose               
+

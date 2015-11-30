@@ -1,0 +1,8 @@
+PyYAML==3.11
+argparse==1.2.1
+logging==0.4.9.6
+msgpack-python==0.4.6
+psutil==3.2.2
+pyzmq==15.0.0
+requests==2.8.1
+wsgiref==0.1.2

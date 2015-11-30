@@ -1,0 +1,23 @@
+---
+client:
+    #dest: '104.131.94.73' 
+    dest: 'localhost' 
+    port: 9000
+    timeout: 5000
+    sleep: 1000
+    auth: '127.0.0.1'
+
+pid_file: 'atto_client.pid'
+
+certs:
+    public: '../certs/public_keys'
+    private: '../certs/private_keys'
+    certs: '../certs/certificates'
+
+logging:
+    log_path: '../logs/'
+    log_name: 'client.log'
+    log_foramt: '%(asctime)s %(levelname)s %(message)s'
+    log_level: 2 # lower is more verbose
+
+
