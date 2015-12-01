@@ -67,18 +67,14 @@ class Server(Daemon):
         server.bind(bind_info)
         logger.info("Server bound to: %s", bind_info)
 
-        logger.info("Starting reciever.")
         self.load_plugins()
-
         logger.info("Starting reciever.")
+
         while True:
             msg = server.recv()
             self.handle_msg(msg)
             server.send("ack")
-            #time.sleep(self.config['server']['sleep']/1000)
-            #self.check_config()
 
-        # stop auth thread
         auth.stop()
 
 if __name__ == '__main__':
