@@ -31,14 +31,6 @@ class Client(Daemon):
         logger.info("Keys: %s  |  Public: %s  |  Secret: %s", keys_dir, public_keys_dir, secret_keys_dir)         
                                                                                                                   
         ctx = zmq.Context.instance()                                                                              
-
-        # Start an authenticator for this context.
-        auth = ThreadAuthenticator(ctx)
-        auth.start()
-        auth.allow(self.config['client']['auth'])
-        # Tell authenticator to use the certificate in a directory
-        auth.configure_curve(domain='*', location=public_keys_dir)
-
         client = ctx.socket(zmq.REQ)
         client.RCVTIMEO = self.config['client']['timeout']
 
@@ -71,13 +63,10 @@ class Client(Daemon):
                     logging.info("Recieved ack")
                 time.sleep(self.config['client']['sleep']/1000)
                 self.check_config()
-
             except zmq.error.ZMQError as e:
                 logger.critical("ZMQError, Exiting: %s", e)
                 exit()
 
-        # stop auth thread
-        auth.stop()
 
 if __name__ == '__main__':
     if zmq.zmq_version_info() < (4,0):
