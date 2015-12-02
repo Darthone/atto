@@ -1,10 +1,10 @@
 #!/bin/bash
 
-mkdir -p ../logs
-mkdir -p ../certs
-cd ..
+mkdir -p $INSTALL_DIR/logs
+mkdir -p $INSTALL_DIR/certs
+cd $INSTALL_DIR
 virtualenv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python scripts/generate_certificates.py
+source $INSTALL_DIR/venv/bin/activate
+pip install -r $INSTALL_DIR/requirements.txt
+python $INSTALL_DIR/scripts/generate_certificates.py
 
