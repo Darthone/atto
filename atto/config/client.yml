@@ -1,6 +1,5 @@
 ---
 client:
-    #dest: '104.131.94.73' 
     dest: 'localhost' 
     port: 9000
     timeout: 5000
