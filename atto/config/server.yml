@@ -4,7 +4,6 @@ server:
     port: 9000
     auth: 
       - '127.0.0.1'
-      - '129.25.9.123'
     sleep: 500
                                                        
 pid_file: 'atto_server.pid'
